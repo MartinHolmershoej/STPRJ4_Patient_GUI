@@ -26,63 +26,60 @@ namespace Patient_GUI
         {
             InitializeComponent();
 
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Thread blockThread = new Thread(MoveBlockThread);
+            blockThread.IsBackground = true;
+            blockThread.Start();
+        }
 
-            // hej med dig, hvordan har du det? 
-            // godt
-            private void Button_Click(object sender, RoutedEventArgs e)
+        private void MoveBlockThread()
+        {
+            int move = 1;
+            bool skift = true;
+            for (int j = 0; j < 1000000; j++)
             {
-                Thread skideThread = new Thread(Skid);
-                skideThread.IsBackground = true;
-                skideThread.Start();
-            }
-
-            private void Skid()
-            {
-                int flyt = 1;
-                bool skift = true;
-                for (int j = 0; j < 1000000; j++)
+                if (skift)
                 {
-                    if (skift)
+                    Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
                     {
-                        Virk_nu.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                        {
-                            Canvas.SetBottom(FuckingVirk, flyt);
-                        }));
-                        flyt++;
-                        if (flyt == 350)
-                        {
-                            skift = false;
-                        }
-                        if (flyt >= 150 && flyt < 200)
-                        {
-                            Virk_nu.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                            {
-                                label.Visibility = Visibility.Visible;
-                            }));
-                        }
-                        else
-                        {
-                            Virk_nu.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                            {
-                                label.Visibility = Visibility.Hidden;
-                            }));
-                        }
+                        Canvas.SetBottom(BlockPosition, move);
+                    }));
+                    move++;
+                    if (move == 350)
+                    {
+                        skift = false;
                     }
-
+                    if (move >= 150 && move < 200)
+                    {
+                        Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                        {
+                            label.Visibility = Visibility.Visible;
+                        }));
+                    }
                     else
                     {
-                        Virk_nu.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                        Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
                         {
-                            Canvas.SetBottom(FuckingVirk, flyt);
+                            label.Visibility = Visibility.Hidden;
                         }));
-                        flyt--;
-                        if (flyt == 0)
-                        {
-                            skift = true;
-                        }
                     }
-                    Thread.Sleep(10);
                 }
+
+                else
+                {
+                    Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
+                    {
+                        Canvas.SetBottom(BlockPosition, move);
+                    }));
+                    move--;
+                    if (move == 0)
+                    {
+                        skift = true;
+                    }
+                }
+                Thread.Sleep(10);
             }
         }
     }
