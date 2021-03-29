@@ -6,4 +6,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
+  </ItemGroup>
+
 </Project>
