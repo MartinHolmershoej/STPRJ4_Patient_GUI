@@ -27,14 +27,14 @@ namespace Patient_GUI
             InitializeComponent();
 
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             Thread blockThread = new Thread(MoveBlockThread);
             blockThread.IsBackground = true;
             blockThread.Start();
         }
 
-        private void MoveBlockThread()
+        public void MoveBlockThread()
         {
             int move = 1;
             bool skift = true;
