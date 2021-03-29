@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Patient_GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas Name="Virk_nu">
+    <Canvas Name="Canvas">
 
-        <Rectangle Name="gay" Height="50" Width="800" Fill="DeepPink" Canvas.Bottom="150"></Rectangle>
-        <Rectangle Name="FuckingVirk" Height="10" Width="800" Fill="SaddleBrown" Canvas.Bottom="0" ></Rectangle>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="724,330,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Rectangle Name="GatingArea" Height="50" Width="800" Fill="DeepPink" Canvas.Bottom="150"></Rectangle>
+        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="SaddleBrown" Canvas.Bottom="0" ></Rectangle>
+        <Button Content="StartButton" HorizontalAlignment="Left" Margin="724,330,0,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
     </Canvas>
 </Window>
