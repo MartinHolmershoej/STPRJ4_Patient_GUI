@@ -5,29 +5,28 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
+using DTO;
+using OperatoerLibrary;
 
 namespace Data_Layer
 {
-    class DataUDP
+    public class DataUDP : IConnection
     {
 
-        private BlockingCollection<double> blockingCollection;
+        private BlockingCollection<DTO_Measurement> measurementQueue;
 
-
+        private DTO_Measurement measurement;
 
         private static int port0 = 11000;
 
-
-        
-
-
-
+        public DataUDP(BlockingCollection<DTO_Measurement> measurementQueue_)
+        {
+            measurementQueue = measurementQueue_;
+        }
 
         public void UdpRecieveData()
         {
             UdpClient udpClient = new UdpClient(port0);
-
-            
             
             var remoteIP = new IPEndPoint(IPAddress.Any, port0);
             byte[] bytes;
@@ -40,26 +39,26 @@ namespace Data_Layer
                 IPEndPoint endpoint = sock1.LocalEndPoint as IPEndPoint;
 
             }
+
             try
             {
                 while (true)
                 {
-                    
+                    bytes = udpClient.Receive(ref remoteIP);
+                    jason = Encoding.ASCII.GetString(bytes, 0, bytes.Length);
+                    measurement = JsonSerializer.Deserialize<DTO_Measurement>(jason);
+                    measurementQueue.Add(measurement);
                 }
 
             }
-            catch (Exception)
+            catch (SocketException e)
             {
-
-                throw;
+                Console.WriteLine(e);
             }
-
-
-
-
-
-
-
+            finally
+            {
+                udpClient.Close();
+            }
 
         }
 
