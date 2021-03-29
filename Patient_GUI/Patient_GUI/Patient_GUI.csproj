@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infaces\" />
+  </ItemGroup>
+
 </Project>
