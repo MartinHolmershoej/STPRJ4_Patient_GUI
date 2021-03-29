@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
+    <Compile Remove="Infaces\**" />
+    <EmbeddedResource Remove="Infaces\**" />
+    <None Remove="Infaces\**" />
+    <Page Remove="Infaces\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infaces\" />
+    <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
   </ItemGroup>
 
 </Project>
