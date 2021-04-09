@@ -21,13 +21,20 @@ namespace Patient_GUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window 
+    public partial class MainWindow : Window
     {
+        private LogicController _controller;
         public MainWindow()
         {
             InitializeComponent();
+            _controller = new LogicController();
 
         }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _controller.startup();
+        }
+
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             Thread blockThread = new Thread(MoveBlockThread);
@@ -84,9 +91,6 @@ namespace Patient_GUI
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            // her kan vi starte 
-        }
+
     }
 }

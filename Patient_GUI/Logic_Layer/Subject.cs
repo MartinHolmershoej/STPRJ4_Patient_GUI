@@ -21,8 +21,12 @@ namespace Logic_Layer
 
         }
 
-        protected void NotifyGui()
+        protected void NotifyGui(object obj)
         {
+            foreach (var observer in iobserver)
+            {
+                observer.Update(obj);
+            }
 
         }
     }

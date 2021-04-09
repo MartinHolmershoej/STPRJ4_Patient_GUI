@@ -17,9 +17,9 @@ namespace Data_Layer
         private DTO_Measurement measurement;
         private static int port0 = 11000;
 
-        public DataUDP(BlockingCollection<DTO_Measurement> measurementQueue_)
+        public DataUDP(BlockingCollection<DTO_Measurement> _measurementQueue)
         {
-            measurementQueue = measurementQueue_;
+            measurementQueue = _measurementQueue;
         }
 
         public void RecieveData()

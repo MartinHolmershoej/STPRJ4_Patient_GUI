@@ -7,7 +7,7 @@ namespace Logic_Layer.Interface
 
     public interface IObserver_GUI
     {
-            void Update();
+            void Update(Object obj);
     }
     
 }
