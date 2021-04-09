@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DTO;
 
 namespace Logic_Layer
 {
-    class GatingControl
+    class GatingControl  
     {
-        private bool CheckGating()
+        public bool CheckGating()
         {
-            //Check om aktuel værdi er inden for gating området
+
+            
             return true;
         }
 

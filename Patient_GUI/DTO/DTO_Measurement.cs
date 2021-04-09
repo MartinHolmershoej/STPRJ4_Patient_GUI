@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OperatoerLibrary
+namespace DTO
 {
     public class DTO_Measurement
     {

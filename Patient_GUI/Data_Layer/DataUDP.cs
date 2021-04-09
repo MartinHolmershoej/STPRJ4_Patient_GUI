@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Text.Json;
 using DTO;
-using OperatoerLibrary;
+
 
 namespace Data_Layer
 {
@@ -22,7 +22,7 @@ namespace Data_Layer
             measurementQueue = measurementQueue_;
         }
 
-        public void UdpRecieveData()
+        public void RecieveData()
         {
             UdpClient udpClient = new UdpClient(port0);
             var remoteIP = new IPEndPoint(IPAddress.Any, port0);
