@@ -28,6 +28,7 @@ namespace Patient_GUI
         {
             InitializeComponent();
             _controller = new LogicController();
+            
 
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)

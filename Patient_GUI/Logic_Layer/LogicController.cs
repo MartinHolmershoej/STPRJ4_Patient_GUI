@@ -12,6 +12,7 @@ namespace Logic_Layer
     {
         public void startup()
         {
+            
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();
             
             DataUDP _udp = new DataUDP(_measurementQueue);
@@ -21,7 +22,7 @@ namespace Logic_Layer
 
 
 
-            // ændre navnet på dostuff senere
+            // ændre navnet på dostuff senere og aaaaa metoden. 
 
 
 

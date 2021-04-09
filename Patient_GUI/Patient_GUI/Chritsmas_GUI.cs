@@ -7,9 +7,12 @@ namespace Patient_GUI
 {
     class Chritsmas_GUI : IObserver_GUI
     {
-        public void Update()
+        
+        public void Update(object obj)
         {
             throw new NotImplementedException();
         }
+
+
     }
 }

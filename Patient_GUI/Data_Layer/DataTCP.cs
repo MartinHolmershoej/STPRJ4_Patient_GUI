@@ -8,7 +8,13 @@ namespace Data_Layer
     {
         public void RecieveData()
         {
+            
+            
+
+
             throw new NotImplementedException();
+
+
         }
     }
 }

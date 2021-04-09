@@ -7,7 +7,9 @@ namespace Patient_GUI
 {
     class Standard_GUI : IObserver_GUI
     {
-        public void Update()
+       
+
+        public void Update(object obj)
         {
             throw new NotImplementedException();
         }

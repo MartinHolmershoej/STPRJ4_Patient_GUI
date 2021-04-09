@@ -9,14 +9,18 @@ namespace Logic_Layer
     {
         public bool CheckGating()
         {
-
             
             return true;
+
+
         }
 
         private void SetGAtingWindow()
         {
             //Sæt gating vinduets værdier her.
+
+
+
         }
     }
 }
