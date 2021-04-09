@@ -14,9 +14,7 @@ namespace Data_Layer
     {
 
         private BlockingCollection<DTO_Measurement> measurementQueue;
-
         private DTO_Measurement measurement;
-
         private static int port0 = 11000;
 
         public DataUDP(BlockingCollection<DTO_Measurement> measurementQueue_)
@@ -27,7 +25,6 @@ namespace Data_Layer
         public void UdpRecieveData()
         {
             UdpClient udpClient = new UdpClient(port0);
-            
             var remoteIP = new IPEndPoint(IPAddress.Any, port0);
             byte[] bytes;
             string jason;

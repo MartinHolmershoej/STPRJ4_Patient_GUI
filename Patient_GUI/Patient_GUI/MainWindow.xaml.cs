@@ -83,5 +83,10 @@ namespace Patient_GUI
                 Thread.Sleep(10);
             }
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // her kan vi starte 
+        }
     }
 }
