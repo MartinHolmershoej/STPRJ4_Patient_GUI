@@ -9,6 +9,7 @@ namespace Logic_Layer
     class ConcreteSubject : Subject
     {
         public BlockingCollection<DTO_Measurement> _measurementQueue;
+        GatingControl _gateControl = new GatingControl();
 
 
         public ConcreteSubject()
@@ -19,11 +20,15 @@ namespace Logic_Layer
 
         public void aaaaa()
         {
-            DTO_Measurement _data = new DTO_Measurement();
+            while (true)
+            {
+                DTO_Measurement _data = new DTO_Measurement();
 
-            _data = _measurementQueue.Take();
+                _data = _measurementQueue.Take();
 
-            NotifyGui(_data);
+                NotifyGui(_data);
+                _gateControl.CheckGating(_data);
+            }
         }
 
     }

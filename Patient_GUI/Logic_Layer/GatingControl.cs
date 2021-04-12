@@ -5,22 +5,23 @@ using DTO;
 
 namespace Logic_Layer
 {
-    class GatingControl  
+    public class GatingControl
     {
-        public bool CheckGating()
+        private bool state = false;
+        // lav denne klasse til et concrete subject.
+        public void CheckGating(object obj)
         {
-            
-            return true;
+            DTO_Measurement data = obj as DTO_Measurement;
 
-
-        }
-
-        private void SetGAtingWindow()
-        {
-            //Sæt gating vinduets værdier her.
-
-
-
+            if (data.GatingLowerValue <= data.MeasurementData && data.MeasurementData >= data.GatingUpperValue)
+            {
+                state = true;
+            }
+            else
+            {
+                state = false;
+            }
+            // kald notify her med state som variable
         }
     }
 }
