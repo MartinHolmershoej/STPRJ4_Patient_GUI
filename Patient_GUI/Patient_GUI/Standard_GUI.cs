@@ -11,7 +11,21 @@ namespace Patient_GUI
         public void Update(object obj)
         {
             DTO_Measurement _data = obj as DTO_Measurement;
+            // lopdater grafen
+
             throw new NotImplementedException();
         }
+
+
+        class graphObsever : IObserver_GUI
+        {
+            public void Update(object obj)
+            {
+                DTO_Measurement _data = obj as DTO_Measurement;
+
+            }
+        }
+
+
     }
 }

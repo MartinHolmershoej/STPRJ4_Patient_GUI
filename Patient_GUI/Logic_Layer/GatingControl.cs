@@ -5,7 +5,7 @@ using DTO;
 
 namespace Logic_Layer
 {
-    public class GatingControl
+    public class GatingControl 
     {
         private bool state = false;
         // lav denne klasse til et concrete subject.
