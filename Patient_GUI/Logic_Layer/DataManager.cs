@@ -6,7 +6,7 @@ using DTO;
 
 namespace Logic_Layer
 {
-    class DataManager : Subject
+    public class DataManager : Subject
     {
         public BlockingCollection<DTO_Measurement> _measurementQueue;
         Alarm _gateControl = new Alarm();

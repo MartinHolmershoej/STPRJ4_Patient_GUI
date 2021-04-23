@@ -19,9 +19,6 @@ namespace Logic_Layer
             DataManager Dostuff = new DataManager();
 
             Dostuff._measurementQueue = _measurementQueue;
-
-
-
             // ændre navnet på dostuff senere og DataCollector metoden. 
 
 
