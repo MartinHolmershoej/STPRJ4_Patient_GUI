@@ -50,7 +50,7 @@ namespace Patient_GUI
                         if (shift)
                         {
                             
-                            Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
+                            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
 
                             step++;
                             if (step == 350)
@@ -60,16 +60,16 @@ namespace Patient_GUI
 
                             if (step >= dto_measurement.GatingLowerValue && step < dto_measurement.GatingUpperValue)
                             {
-                                Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Visible; }));
+                                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Visible; }));
                             }
                             else
                             {
-                                Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Hidden; }));
+                                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Hidden; }));
                             }
                         }
                         else
                         {
-                            Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
+                            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
                             step--;
                             if (step == 0)
                             {
