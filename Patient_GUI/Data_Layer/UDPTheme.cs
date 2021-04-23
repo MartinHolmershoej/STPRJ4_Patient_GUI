@@ -13,7 +13,7 @@ namespace Data_Layer
     {
         private static int port0 = 11001;
 
-        public void RecieveTheme()
+        public int RecieveTheme()
         {
             //UdpClient udpClient = new UdpClient(port0);
             //var remoteIP = new IPEndPoint(IPAddress.Any, port0);
@@ -45,7 +45,7 @@ namespace Data_Layer
             //{
             //    udpClient.Close();
             //}
-
+            return 1;
         }
 
 

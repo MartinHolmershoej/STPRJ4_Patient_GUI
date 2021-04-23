@@ -16,7 +16,7 @@ namespace Logic_Layer
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();
             
             DataUDP _udp = new DataUDP(_measurementQueue);
-            DataManager Dostuff = new DataManager();
+            DataDistributor Dostuff = new DataDistributor();
 
             Dostuff._measurementQueue = _measurementQueue;
             // ændre navnet på dostuff senere og DataCollector metoden. 
