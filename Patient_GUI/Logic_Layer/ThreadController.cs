@@ -8,7 +8,7 @@ using DTO;
 
 namespace Logic_Layer
 {
-    public class LogicController
+    public class ThreadController
     {
         public void startup()
         {
@@ -16,18 +16,18 @@ namespace Logic_Layer
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();
             
             DataUDP _udp = new DataUDP(_measurementQueue);
-            ConcreteSubject Dostuff = new ConcreteSubject();
+            DataManager Dostuff = new DataManager();
 
             Dostuff._measurementQueue = _measurementQueue;
 
 
 
-            // ændre navnet på dostuff senere og aaaaa metoden. 
+            // ændre navnet på dostuff senere og DataCollector metoden. 
 
 
 
             Thread _udpThread = new Thread(_udp.RecieveData);
-            Thread _dostuffThread = new Thread(Dostuff.aaaaa);
+            Thread _dostuffThread = new Thread(Dostuff.DataCollector);
 
 
 

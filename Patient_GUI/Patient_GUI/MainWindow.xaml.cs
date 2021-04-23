@@ -23,75 +23,16 @@ namespace Patient_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private LogicController _controller;
+        private ThreadController _controller;
         public MainWindow()
         {
             InitializeComponent();
-            _controller = new LogicController();
-            
+            _controller = new ThreadController();
 
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _controller.startup();
         }
-
-        public void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Thread blockThread = new Thread(MoveBlockThread);
-            blockThread.IsBackground = true;
-            blockThread.Start();
-        }
-
-        public void MoveBlockThread()
-        {
-            int move = 1;
-            bool skift = true;
-            for (int j = 0; j < 1000000; j++)
-            {
-                if (skift)
-                {
-                    Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                    {
-                        Canvas.SetBottom(BlockPosition, move);
-                    }));
-                    move++;
-                    if (move == 350)
-                    {
-                        skift = false;
-                    }
-                    if (move >= 150 && move < 200)
-                    {
-                        Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                        {
-                            label.Visibility = Visibility.Visible;
-                        }));
-                    }
-                    else
-                    {
-                        Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                        {
-                            label.Visibility = Visibility.Hidden;
-                        }));
-                    }
-                }
-
-                else
-                {
-                    Canvas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() =>
-                    {
-                        Canvas.SetBottom(BlockPosition, move);
-                    }));
-                    move--;
-                    if (move == 0)
-                    {
-                        skift = true;
-                    }
-                }
-                Thread.Sleep(10);
-            }
-        }
-
-
     }
 }

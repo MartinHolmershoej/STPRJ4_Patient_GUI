@@ -6,19 +6,19 @@ using DTO;
 
 namespace Logic_Layer
 {
-    class ConcreteSubject : Subject
+    class DataManager : Subject
     {
         public BlockingCollection<DTO_Measurement> _measurementQueue;
-        GatingControl _gateControl = new GatingControl();
+        Alarm _gateControl = new Alarm();
 
 
-        public ConcreteSubject()
+        public DataManager()
         {
             _measurementQueue = new BlockingCollection<DTO_Measurement>();
         }
 
 
-        public void aaaaa()
+        public void DataCollector()
         {
             while (true)
             {
@@ -26,8 +26,9 @@ namespace Logic_Layer
 
                 _data = _measurementQueue.Take();
 
-                NotifyGui(_data);
                 _gateControl.CheckGating(_data);
+
+                NotifyGui(_data);
             }
         }
 

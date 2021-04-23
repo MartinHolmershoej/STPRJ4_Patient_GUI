@@ -1,0 +1,14 @@
+﻿<Window x:Class="Patient_GUI.Standard_GUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Patient_GUI"
+        mc:Ignorable="d"
+        Title="Standard_GUI" Height="450" Width="800">
+    <Canvas>
+        <Rectangle Name="GatingArea" Height="50" Width="800" Fill="DeepPink" Canvas.Bottom="150"></Rectangle>
+        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="SaddleBrown" Canvas.Bottom="0" ></Rectangle>
+        <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
+    </Canvas>
+</Window>

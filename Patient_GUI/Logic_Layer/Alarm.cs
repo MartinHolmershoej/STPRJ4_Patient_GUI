@@ -5,23 +5,20 @@ using DTO;
 
 namespace Logic_Layer
 {
-    public class GatingControl 
+    public class Alarm 
     {
-        private bool state = false;
-        // lav denne klasse til et concrete subject.
         public void CheckGating(object obj)
         {
             DTO_Measurement data = obj as DTO_Measurement;
 
             if (data.GatingLowerValue <= data.MeasurementData && data.MeasurementData >= data.GatingUpperValue)
             {
-                state = true;
+                data.GatingState = true;
             }
             else
             {
-                state = false;
+                data.GatingState = false;
             }
-            // kald notify her med state som variable
         }
     }
 }

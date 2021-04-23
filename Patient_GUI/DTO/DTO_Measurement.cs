@@ -11,5 +11,6 @@ namespace DTO
         public double MeasurementData { get; set; }
         public double GatingLowerValue { get; set; }
         public double GatingUpperValue { get; set; }
+        public bool GatingState { get; set; }
     }
 }
