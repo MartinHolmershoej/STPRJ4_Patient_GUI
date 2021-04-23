@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Patient_GUI"
         mc:Ignorable="d"
         Title="Christmas_GUI" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Canvas>
+        <Rectangle Name="GatingArea" Height="50" Width="800" Fill="OrangeRed" Canvas.Bottom="150"></Rectangle>
+        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Green" Canvas.Bottom="0" ></Rectangle>
+        <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
+        <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="322" Canvas.Top="123" Width="156" FontFamily="Verdana" FontSize="20"/>
+    </Canvas>
 </Window>
