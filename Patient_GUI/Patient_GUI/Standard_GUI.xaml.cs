@@ -35,7 +35,7 @@ namespace Patient_GUI
 
             
             
-            move = _data.MeasurementData * 112.5;
+            move = Math.Round(_data.MeasurementData * 112.5, 1);
 
 
 
