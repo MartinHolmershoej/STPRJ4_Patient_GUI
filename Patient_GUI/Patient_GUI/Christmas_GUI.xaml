@@ -10,6 +10,11 @@
         <Rectangle Name="GatingArea" Height="50" Width="800" Fill="OrangeRed" Canvas.Bottom="150"></Rectangle>
         <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Green" Canvas.Bottom="0" ></Rectangle>
         <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
-        <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="322" Canvas.Top="123" Width="156" FontFamily="Verdana" FontSize="20"/>
+        <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="288" Canvas.Top="126" Width="224" FontFamily="Verdana" FontSize="30"/>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="233" Width="111" Canvas.Left="10" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="234" Width="111" Canvas.Left="167" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="344" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="510" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="674" IsEnabled="False"></Image>
     </Canvas>
 </Window>

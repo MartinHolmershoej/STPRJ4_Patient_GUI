@@ -25,72 +25,44 @@ namespace Patient_GUI
     /// </summary>
     public partial class Christmas_GUI : Window, IObserver_GUI
     {
+        /// <summary>
+        /// 
+        /// </summary>
         private DTO_Measurement dto_measurement;
-        public BlockingCollection<DTO_Measurement> _measurementQueue;
-        private bool shift;
+        /// <summary>
+        /// 
+        /// </summary>
         private double step;
+        /// <summary>
+        /// Constructor for Christmas_GUI uden parameter
+        /// </summary>
         public Christmas_GUI()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Denne metode skal bruges til at flytte blokken i vinduet og fremvise "Hold vejret"-beskeden til patienten
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(object obj)
         {
+            dto_measurement = new DTO_Measurement();
+
+            step = dto_measurement.MeasurementData;
+
+            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
             
-
-            while (!_measurementQueue.IsCompleted)
+            if (step >= dto_measurement.GatingLowerValue && step < dto_measurement.GatingUpperValue)
             {
-                try
-                {
-                    dto_measurement = _measurementQueue.Take();
-
-                    for (double i = 0; i < dto_measurement.GatingUpperValue; i++)
-                    {
-                        i = step;
-                        if (shift)
-                        {
-                            
-                            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
-
-                            step++;
-                            if (step == 350)
-                            {
-                                shift = false;
-                            }
-
-                            if (step >= dto_measurement.GatingLowerValue && step < dto_measurement.GatingUpperValue)
-                            {
-                                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Visible; }));
-                            }
-                            else
-                            {
-                                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Hidden; }));
-                            }
-                        }
-                        else
-                        {
-                            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
-                            step--;
-                            if (step == 0)
-                            {
-                                shift = true;
-                            }
-                        }
-
-                        Thread.Sleep(10);
-
-                    }
-                }
-                catch
-                {
-
-                }
+                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Visible; }));
             }
+            else
+            {
+                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Hidden; }));
+            }
+
         }
 
-        public void MoveBlock(object sender, RoutedEventArgs e)
-        {
-        }
-        
     }
+
 }
