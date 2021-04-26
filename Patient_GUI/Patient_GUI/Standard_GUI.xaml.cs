@@ -30,52 +30,38 @@ namespace Patient_GUI
 
         public void Update(object obj)
         {
+            double move;
             DTO_Measurement _data = obj as DTO_Measurement;
+
+            
+            
+            move = _data.MeasurementData * 112.5;
+
+
+
+
+                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
+            if (move >= _data.GatingLowerValue && move < _data.GatingUpperValue)
+            {
+                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                    new Action(() => { Alarm.Visibility = Visibility.Visible; }));
+            }
+            else
+            {
+                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                    new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
+            }
+
+
             
 
-            int move = 1;
-            bool skift = true;
-            for (int j = 0; j < 1000000; j++)
-            {
-                if (skift)
-                {
-                    Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
-                    move++;
-                    if (move == 350)
-                    {
-                        skift = false;
-                    }
+            
+           
 
-                    if (move >= 1 && move < 200)
-                    {
-                        Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                            new Action(() => { Alarm.Visibility = Visibility.Visible; }));
-                    }
-                    else
-                    {
-                        Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                            new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
-                    }
-                }
-
-                else
-                {
-                    Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
-                    move--;
-                    if (move == 0)
-                    {
-                        skift = true;
-                    }
-                }
-
-                Thread.Sleep(10);
-                throw new NotImplementedException();
-            }
 
 
         }
     }
 }
-    
+
