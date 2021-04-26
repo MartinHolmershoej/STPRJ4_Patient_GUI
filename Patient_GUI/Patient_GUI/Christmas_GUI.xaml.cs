@@ -26,11 +26,11 @@ namespace Patient_GUI
     public partial class Christmas_GUI : Window, IObserver_GUI
     {
         /// <summary>
-        /// 
+        /// Et objekt af DTO-klassen DTO_Measurement
         /// </summary>
         private DTO_Measurement dto_measurement;
         /// <summary>
-        /// 
+        /// En attribut, der bruges til at flytte blokken
         /// </summary>
         private double step;
         /// <summary>
@@ -41,12 +41,12 @@ namespace Patient_GUI
             InitializeComponent();
         }
         /// <summary>
-        /// Denne metode skal bruges til at flytte blokken i vinduet og fremvise "Hold vejret"-beskeden til patienten
+        /// Denne metode skal bruges til at flytte blokken i vinduet og fremvise "Hold vejret"-beskeden til patienten. Indeholder object som parameter
         /// </summary>
         /// <param name="obj"></param>
         public void Update(object obj)
         {
-            dto_measurement = new DTO_Measurement();
+            DTO_Measurement dto_measurement = obj as DTO_Measurement;
 
             step = dto_measurement.MeasurementData;
 
