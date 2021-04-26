@@ -26,11 +26,7 @@ namespace Patient_GUI
     public partial class Christmas_GUI : Window, IObserver_GUI
     {
         /// <summary>
-        /// Et objekt af DTO-klassen DTO_Measurement
-        /// </summary>
-        private DTO_Measurement dto_measurement;
-        /// <summary>
-        /// En attribut, der bruges til at flytte blokken
+        /// En attribut af typen double, der bruges til at flytte blokken
         /// </summary>
         private double step;
         /// <summary>

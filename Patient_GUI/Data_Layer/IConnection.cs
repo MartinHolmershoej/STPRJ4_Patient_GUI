@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Data_Layer
 {
+    /// <summary>
+    /// Dette interface bruges til klasserne DataUDP og UDPTheme
+    /// </summary>
     public interface IConnection
     {
         public void RecieveData();

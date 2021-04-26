@@ -10,18 +10,34 @@ using DTO;
 
 namespace Data_Layer
 {
+    /// <summary>
+    /// Denne klasse bruges til at modtage data fra operatørsystemet og arver fra interfacet IConnection
+    /// </summary>
     public class DataUDP : IConnection
     {
-
+        /// <summary>
+        /// Et objekt af blockingcollection af DTO-klassen DTO_Measurement
+        /// </summary>
         private BlockingCollection<DTO_Measurement> measurementQueue;
+        /// <summary>
+        /// Et objekt af blockingcollection af DTO-klassen DTO_Measurement
+        /// </summary>
         private DTO_Measurement measurement;
+        /// <summary>
+        /// En attribut af typen int, som fortæller om porten, data kommer fra
+        /// </summary>
         private static int port0 = 11000;
-
+        /// <summary>
+        /// Constructor for klassen DataUDP med blockingcollection af DTO_Measurement som parameter
+        /// </summary>
+        /// <param name="_measurementQueue"></param>
         public DataUDP(BlockingCollection<DTO_Measurement> _measurementQueue)
         {
             measurementQueue = _measurementQueue;
         }
-
+        /// <summary>
+        /// Denne metode bruges til at modtage data fra operatørsystemet
+        /// </summary>
         public void RecieveData()
         {
             UdpClient udpClient = new UdpClient(port0);

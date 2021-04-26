@@ -9,10 +9,18 @@ using DTO;
 
 namespace Data_Layer
 {
+    /// <summary>
+    /// Klassen UDPTheme bruges til at modtage tema fra operatørsystemet, som skal bruges til GUI'en
+    /// </summary>
     public class UDPTheme
     {
         private static int port0 = 11001;
 
+        /// <summary>
+        /// Denne metode bruges til at modtaget et tal fra UDP-forbindelsen fra operatørsystemet.
+        /// Tallet fortæller om de to forskellige temaer til GUI - Standard og Christmas. 
+        /// </summary>
+        /// <returns>Et tal, der indikerer tema til GUI</returns>
         public int RecieveTheme()
         {
             UdpClient udpClient = new UdpClient(port0);
