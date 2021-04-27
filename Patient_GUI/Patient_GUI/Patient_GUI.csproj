@@ -14,11 +14,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WpfAnimatedGif" Version="2.0.0" />
+    <None Remove="LoadingWheel.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="XamlAnimatedGif" Version="2.0.0-alpha.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\LoadingWheel.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
