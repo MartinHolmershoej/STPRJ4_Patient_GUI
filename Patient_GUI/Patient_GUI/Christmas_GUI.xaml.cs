@@ -47,14 +47,18 @@ namespace Patient_GUI
             step = dto_measurement.MeasurementData;
 
             Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
-            
+            //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(greensleigh, step); }));
+            //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(sleigh, step); }));
+
             if (step >= dto_measurement.GatingLowerValue && step < dto_measurement.GatingUpperValue)
             {
-                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Visible; }));
+                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { HoldLabel.Visibility = Visibility.Visible; }));
+                //GatingArea.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 128, 0));
+                GatingArea.Fill = new SolidColorBrush(Colors.Yellow);
             }
             else
             {
-                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { label.Visibility = Visibility.Hidden; }));
+                Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { HoldLabel.Visibility = Visibility.Hidden; }));
             }
 
         }
