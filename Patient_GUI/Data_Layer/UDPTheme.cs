@@ -15,30 +15,27 @@ namespace Data_Layer
     public class UDPTheme
     {
         private static int port0 = 11001;
-
+        private IPAddress broadCastIP;
         /// <summary>
         /// Denne metode bruges til at modtaget et tal fra UDP-forbindelsen fra operatørsystemet.
         /// Tallet fortæller om de to forskellige temaer til GUI - Standard og Christmas. 
         /// </summary>
         /// <returns>Et tal, der indikerer tema til GUI</returns>
+     
         public int RecieveTheme()
         {
+            broadCastIP = IPAddress.Parse("127.0.0.1");
             UdpClient udpClient = new UdpClient(port0);
-            var remoteIP = new IPEndPoint(IPAddress.Any, port0);
+            var remoteIP = new IPEndPoint(broadCastIP, port0);
             byte[] bytes;
             int _Theme =0;
 
-
-            using (Socket sock2 = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
-            {
-                sock2.Connect("1213.1323.13131", 11000);
-                IPEndPoint endpoint = sock2.LocalEndPoint as IPEndPoint;
-
-            }
+            bytes = udpClient.Receive(ref remoteIP);
+            _Theme = Convert.ToInt32(Encoding.ASCII.GetString(bytes, 0, bytes.Length));
+           
             try
             {
-                bytes = udpClient.Receive(ref remoteIP);
-                _Theme = Convert.ToInt32(Encoding.ASCII.GetString(bytes, 0, bytes.Length));
+                
 
             }
             catch (SocketException e)
