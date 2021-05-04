@@ -31,6 +31,7 @@ namespace Data_Layer
         /// Constructor for klassen DataUDP med blockingcollection af DTO_Measurement som parameter
         /// </summary>
         /// <param name="_measurementQueue"></param>
+        private IPAddress broadCastIP;
         public DataUDP(BlockingCollection<DTO_Measurement> _measurementQueue)
         {
             measurementQueue = _measurementQueue;
@@ -40,19 +41,13 @@ namespace Data_Layer
         /// </summary>
         public void RecieveData()
         {
+            broadCastIP = IPAddress.Parse("127.0.0.1");
             UdpClient udpClient = new UdpClient(port0);
-            var remoteIP = new IPEndPoint(IPAddress.Any, port0);
+            var remoteIP = new IPEndPoint(broadCastIP, port0);
             byte[] bytes;
             string jason;
 
-
-            using (Socket sock1 = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
-            {
-                sock1.Connect("1213.1323.13131", 11000);
-                IPEndPoint endpoint = sock1.LocalEndPoint as IPEndPoint;
-
-            }
-
+            
             try
             {
                 while (true)
