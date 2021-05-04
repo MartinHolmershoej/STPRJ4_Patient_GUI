@@ -9,7 +9,10 @@ namespace Logic_Layer
         private List<IObserver_GUI> iobserver = new List<IObserver_GUI>();
 
         
-
+        /// <summary>
+        /// Denne metode attacher en opserver til listen, så når der sker en ændring i state, så bliver alle der lytter automatisk opdateret. 
+        /// </summary>
+        /// <param name="Observer"></param>
         public void Attach(IObserver_GUI Observer)
         {
             iobserver.Add(Observer);
