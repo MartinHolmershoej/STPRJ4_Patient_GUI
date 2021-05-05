@@ -35,7 +35,7 @@ namespace Patient_GUI
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Loading.Visibility = Visibility.Visible;}}
+            Loading.Visibility = Visibility.Visible;
             int _Theme =_dataDistributor.GetTheme();
 
             if (_Theme == 1)
@@ -43,7 +43,7 @@ namespace Patient_GUI
                 Standard_GUI standardGui = new Standard_GUI();
                 _dataDistributor.Attach(standardGui);
                 standardGui.Show();
-                }
+            }
             if (_Theme == 2)
             {
                 Christmas_GUI christmasGui = new Christmas_GUI();
@@ -51,8 +51,8 @@ namespace Patient_GUI
                 _dataDistributor.Attach(christmasGui);
             }
 
-            //Loading.Visibility = Visibility.Hidden;
-            _controller.startup();
+            Loading.Visibility = Visibility.Hidden;
+            _controller.startup(_dataDistributor);
             this.Hide();
         }
     }
