@@ -29,7 +29,9 @@ namespace Patient_GUI
         /// En attribut af typen double, der bruges til at flytte blokken
         /// </summary>
         public double step { get; set; }
-        
+        public double UpperGatingValue { get; set; }
+        public double LowerGatingValue { get; set; }
+
         /// <summary>
         /// Constructor for Christmas_GUI uden parameter
         /// </summary>
@@ -52,6 +54,31 @@ namespace Patient_GUI
             Christmas.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
             //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(greensleigh, step); }));
             //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(sleigh, step); }));
+
+
+
+            if (dto_measurement.GatingUpperValue == UpperGatingValue && dto_measurement.GatingLowerValue == LowerGatingValue)
+            {
+                HoldLabel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                UpperGatingValue = dto_measurement.GatingUpperValue;
+                LowerGatingValue = dto_measurement.GatingLowerValue;
+                Height = Convert.ToInt32((UpperGatingValue * 450) - (LowerGatingValue * 450));
+
+                Christmas.Dispatcher.Invoke(DispatcherPriority.Normal,
+                    new Action(() => { Canvas.SetBottom(GatingArea, (LowerGatingValue * 450)); }));
+                this.Dispatcher.Invoke(() =>
+                {
+
+                    GatingArea.Height = Height;
+
+                });
+            }
+
+
+
 
             if (step >= dto_measurement.GatingLowerValue && step < dto_measurement.GatingUpperValue)
             {

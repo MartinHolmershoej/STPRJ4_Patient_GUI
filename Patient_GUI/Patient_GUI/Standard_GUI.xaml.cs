@@ -42,7 +42,7 @@ namespace Patient_GUI
 
             if (_data.GatingUpperValue == UpperGatingValue && _data.GatingLowerValue == LowerGatingValue)
             {
-
+                Alarm.Visibility = Visibility.Visible;
             }
             else
             {
