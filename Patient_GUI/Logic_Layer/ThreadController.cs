@@ -10,22 +10,19 @@ namespace Logic_Layer
 {
     public class ThreadController
     {
-        public void startup()
+        public void startup(DataDistributor dataDistributor)
         {
-            
+            //,
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();
             
             DataUDP _udp = new DataUDP(_measurementQueue);
-            DataDistributor Dostuff = new DataDistributor();
-
-            Dostuff._measurementQueue = _measurementQueue;
+            dataDistributor._measurementQueue = _measurementQueue;
             // ændre navnet på dostuff senere og DataCollector metoden. 
 
 
-
             Thread _udpThread = new Thread(_udp.RecieveData);
-            Thread _dostuffThread = new Thread(Dostuff.DataCollector);
-
+            Thread _dostuffThread = new Thread(dataDistributor.DataCollector);
+            
 
 
             _udpThread.IsBackground = true;
