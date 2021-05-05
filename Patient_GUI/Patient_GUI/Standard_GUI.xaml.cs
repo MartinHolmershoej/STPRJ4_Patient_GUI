@@ -23,16 +23,16 @@ namespace Patient_GUI
 
     {
         public double move { get; set; }
-        //public double UpperGatingValue { get; set; }
-        //public double LowerGatingValue { get; set; }
-        //public int Height { get; set; }
-        
+        public double UpperGatingValue { get; set; }
+        public double LowerGatingValue { get; set; }
+        public int Height { get; set; }
+
         public Standard_GUI()
         {
             InitializeComponent();
-            //UpperGatingValue = 0;
-            //LowerGatingValue = 50;
-            //Height = 20;
+            UpperGatingValue = 0;
+            LowerGatingValue = 50;
+            Height = 20;
         }
 
         public void Update(object obj)
@@ -40,29 +40,29 @@ namespace Patient_GUI
            
             DTO_Measurement _data = obj as DTO_Measurement;
 
-            //if (_data.GatingUpperValue == UpperGatingValue && _data.GatingLowerValue == LowerGatingValue)
-            //{
-                
-            //}
-            //else
-            //{
-            //    UpperGatingValue = _data.GatingUpperValue;
-            //    LowerGatingValue = _data.GatingLowerValue;
-            //    Height = Convert.ToInt32((UpperGatingValue*450) - (LowerGatingValue*450));
+            if (_data.GatingUpperValue == UpperGatingValue && _data.GatingLowerValue == LowerGatingValue)
+            {
 
-            //    Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-            //        new Action(() => { Canvas.SetBottom(GatingArea, (LowerGatingValue*450)); }));
-            //    this.Dispatcher.Invoke(() =>
-            //    {
-                            
-            //        GatingArea.Height = Height;
+            }
+            else
+            {
+                UpperGatingValue = _data.GatingUpperValue;
+                LowerGatingValue = _data.GatingLowerValue;
+                Height = Convert.ToInt32((UpperGatingValue * 450) - (LowerGatingValue * 450));
 
-            //    });
-            //}
+                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
+                    new Action(() => { Canvas.SetBottom(GatingArea, (LowerGatingValue * 450)); }));
+                this.Dispatcher.Invoke(() =>
+                {
+
+                    GatingArea.Height = Height;
+
+                });
+            }
 
 
 
-            
+
             move = Math.Round(_data.MeasurementData * 450, 1);
 
 

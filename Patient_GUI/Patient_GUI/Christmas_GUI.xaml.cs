@@ -28,7 +28,8 @@ namespace Patient_GUI
         /// <summary>
         /// En attribut af typen double, der bruges til at flytte blokken
         /// </summary>
-        private double step;
+        public double step { get; set; }
+        
         /// <summary>
         /// Constructor for Christmas_GUI uden parameter
         /// </summary>
@@ -46,7 +47,9 @@ namespace Patient_GUI
 
             step = dto_measurement.MeasurementData;
 
-            Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
+            step = Math.Round(dto_measurement.MeasurementData * 450, 1);
+
+            Christmas.Dispatcher.Invoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(BlockPosition, step); }));
             //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(greensleigh, step); }));
             //Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { Canvas.SetBottom(sleigh, step); }));
 
@@ -54,7 +57,7 @@ namespace Patient_GUI
             {
                 Christmas.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { HoldLabel.Visibility = Visibility.Visible; }));
                 //GatingArea.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 128, 0));
-                GatingArea.Fill = new SolidColorBrush(Colors.Yellow);
+                //GatingArea.Fill = new SolidColorBrush(Colors.Yellow);
             }
             else
             {
