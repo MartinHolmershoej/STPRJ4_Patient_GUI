@@ -41,9 +41,9 @@ namespace Patient_GUI
             if (_Theme == 1)
             {
                 Standard_GUI standardGui = new Standard_GUI();
-                _dataDistributor.Attach(standardGui);
                 standardGui.Show();
-                }
+                _dataDistributor.Attach(standardGui);
+            }
             if (_Theme == 2)
             {
                 Christmas_GUI christmasGui = new Christmas_GUI();
