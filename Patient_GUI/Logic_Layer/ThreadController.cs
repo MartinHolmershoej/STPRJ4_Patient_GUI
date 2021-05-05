@@ -12,7 +12,7 @@ namespace Logic_Layer
     {
         public void startup(DataDistributor dataDistributor)
         {
-            
+            //,
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();
             
             DataUDP _udp = new DataUDP(_measurementQueue);
