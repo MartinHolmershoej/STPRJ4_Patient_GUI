@@ -27,16 +27,19 @@ namespace Logic_Layer
         }
         public void DataCollector()
         {
-            while (true)
-            {
+           while (true)
+           {
                 DTO_Measurement _data = new DTO_Measurement();
 
                 _data = _measurementQueue.Take();
+                Console.ReadLine();
+
+                NotifyGui(_data);
 
                 _gateControl.CheckGating(_data);
 
-                NotifyGui(_data);
-            }
+                
+           }
         }
 
     }

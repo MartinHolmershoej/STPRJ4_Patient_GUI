@@ -22,7 +22,7 @@ namespace Logic_Layer
 
             Thread _udpThread = new Thread(_udp.RecieveData);
             Thread _dostuffThread = new Thread(dataDistributor.DataCollector);
-
+            
 
 
             _udpThread.IsBackground = true;
