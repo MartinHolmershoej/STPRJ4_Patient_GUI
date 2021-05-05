@@ -8,7 +8,7 @@
         Title="Standard_GUI" Height="450" Width="800">
     <Canvas Name ="Standard" >
         <Rectangle Name="GatingArea" Height="50" Width="800" Fill="DarkBlue" Canvas.Bottom="150"></Rectangle>
-        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Black" Canvas.Bottom="20" Canvas.Top="354" ></Rectangle>
+        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Black" Canvas.Bottom="{Binding move}"  ></Rectangle>
         <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
         <Label x:Name="Alarm" Content="Hold vejret" Canvas.Left="286" Canvas.Top="158" Height="59" Width="190" IsEnabled="False" FontSize="38" FontWeight="Bold" FontFamily="Calibri"/>
     </Canvas>

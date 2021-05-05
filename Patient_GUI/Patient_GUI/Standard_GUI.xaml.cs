@@ -22,6 +22,7 @@ namespace Patient_GUI
     public partial class Standard_GUI : Window, IObserver_GUI
 
     {
+        public double move { get; set; }
         public Standard_GUI()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Patient_GUI
 
         public void Update(object obj)
         {
-            double move;
+           
             DTO_Measurement _data = obj as DTO_Measurement;
 
             
