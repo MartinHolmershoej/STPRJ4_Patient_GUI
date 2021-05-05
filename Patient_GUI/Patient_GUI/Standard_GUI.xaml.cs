@@ -35,21 +35,28 @@ namespace Patient_GUI
 
             
             
-            move = Math.Round(_data.MeasurementData * 112.5, 1);
+            move = Math.Round(_data.MeasurementData * 450, 1);
 
 
 
 
-                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
-                        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
+
+            Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
+                    new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
             if (move >= _data.GatingLowerValue && move < _data.GatingUpperValue)
             {
-                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
                     new Action(() => { Alarm.Visibility = Visibility.Visible; }));
+            }
+            else if (move < -0.5)
+            {
+                
             }
             else
             {
-                Standard.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                
+                
+                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
                     new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
             }
 
