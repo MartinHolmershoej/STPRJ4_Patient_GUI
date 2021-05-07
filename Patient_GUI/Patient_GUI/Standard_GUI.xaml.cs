@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Windows;
@@ -37,61 +38,51 @@ namespace Patient_GUI
 
         public void Update(object obj)
         {
-           
+            int lowerGatingValue1 = 0;
             DTO_Measurement _data = obj as DTO_Measurement;
 
-            if (_data.GatingUpperValue == UpperGatingValue && _data.GatingLowerValue == LowerGatingValue)
-            {
-                Alarm.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                UpperGatingValue = _data.GatingUpperValue;
-                LowerGatingValue = _data.GatingLowerValue;
-                Height = Convert.ToInt32((UpperGatingValue * 450) - (LowerGatingValue * 450));
+            UpperGatingValue = _data.GatingUpperValue;
+            LowerGatingValue = _data.GatingLowerValue;
+            Height = Convert.ToInt32((UpperGatingValue * 450) - (LowerGatingValue * 450));
 
-                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-                    new Action(() => { Canvas.SetBottom(GatingArea, (LowerGatingValue * 450)); }));
-                this.Dispatcher.Invoke(() =>
-                {
-
-                    GatingArea.Height = Height;
-
-                });
-            }
-
-
-
-
-            move = Math.Round(_data.MeasurementData * 450, 1);
-
-
-
-
+            lowerGatingValue1 = Convert.ToInt32(LowerGatingValue * 450);
 
             Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-                    new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
-            if (move >= _data.GatingLowerValue && move < _data.GatingUpperValue)
-            {
-                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-                    new Action(() => { Alarm.Visibility = Visibility.Visible; }));
-            }
-            else
-            {
-                
-                
-                Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-                    new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
-            }
+                new Action(() =>
+                {
+                    Canvas.SetBottom(GatingArea, (lowerGatingValue1));
+                    GatingArea.Height = Height;
 
 
-            
+                    move = Math.Round(_data.MeasurementData * 450, 1);
+                    Canvas.SetBottom(BlockPosition, move);
 
-            
-           
+                    if (_data.GatingState)
+                    {
+                        Alarm.Visibility = Visibility.Visible;
+                        SystemSounds.Beep.Play();
+                    }
+                    else
+                    {
+                        Alarm.Visibility = Visibility.Hidden;
+                    }
+
+                }));
+
+            //Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
+            //        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
+            //if (move >= _data.GatingLowerValue && move < _data.GatingUpperValue)
+            //{
+            //    Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
+            //        new Action(() => { Alarm.Visibility = Visibility.Visible; }));
+            //}
+            //else
+            //{
 
 
-
+            //    Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
+            //        new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
+            //}
         }
     }
 }

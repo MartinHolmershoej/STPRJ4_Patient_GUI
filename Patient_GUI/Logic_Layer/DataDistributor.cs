@@ -32,11 +32,12 @@ namespace Logic_Layer
                 DTO_Measurement _data = new DTO_Measurement();
 
                 _data = _measurementQueue.Take();
-                Console.ReadLine();
+
+                _gateControl.CheckGating(_data);
 
                 NotifyGui(_data);
 
-                _gateControl.CheckGating(_data);
+                
 
                 
            }

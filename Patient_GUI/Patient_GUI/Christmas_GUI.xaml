@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Christmas_GUI" Height="450" Width="800">
     <Canvas Name="Christmas">
-        <Rectangle Name="GatingArea" Height="50" Width="800" Fill="#FBFF4500" Canvas.Bottom="110"/>
+        <Rectangle Name="GatingArea" Height="{Binding Height}" Width="800" Fill="#FBFF4500" Canvas.Bottom="{Binding LowerGatingValue}"/>
         <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Green" Canvas.Bottom="{Binding step}" ></Rectangle>
         <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="278" Canvas.Top="78" Width="244" FontFamily="Verdana" FontSize="33"/>
         <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="344" IsEnabled="False"></Image>

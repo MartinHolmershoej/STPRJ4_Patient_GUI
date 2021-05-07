@@ -16,7 +16,7 @@ namespace Logic_Layer
         {
             DTO_Measurement data = obj as DTO_Measurement;
 
-            if (data.GatingLowerValue <= data.MeasurementData && data.MeasurementData >= data.GatingUpperValue)
+            if (data.GatingLowerValue <= data.MeasurementData && data.MeasurementData <= data.GatingUpperValue)
             {
                 data.GatingState = true;
             }
