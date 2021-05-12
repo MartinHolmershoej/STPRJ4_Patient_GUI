@@ -14,22 +14,52 @@ namespace Patient_GUI_Test
         public void Setup()
         {
             uut = new Alarm();
-            
+            data = new DTO_Measurement(2,1,3,false);
         }
 
         [Test]
         public void CheckGatingTrue()
         {
-            data = new DTO_Measurement(2, 1, 3, false);
+            data.GatingState = false;
+            data.GatingLowerValue = 1;
+            data.GatingUpperValue = 3;
+            data.MeasurementData = 2;
             uut.CheckGating(data);
             Assert.That(data.GatingState, Is.EqualTo(true));
         }
         [Test]
         public void CheckGatingfalse()
         {
-            data = new DTO_Measurement(10, 1, 3, true);
+            data.GatingState = true;
+            data.GatingLowerValue = 1;
+            data.GatingUpperValue = 3;
+            data.MeasurementData = 10;
             uut.CheckGating(data);
             Assert.That(data.GatingState, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void DontCangeState()
+        {
+            data.GatingState = true;
+            data.GatingLowerValue = 1;
+            data.GatingUpperValue = 3;
+            data.MeasurementData = 10;
+            Assert.That(data.GatingState, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void CheckGatingDIBH()
+        {
+            data.GatingState = false;
+            data.GatingLowerValue = 1;
+            data.GatingUpperValue = 3;
+            data.MeasurementData = 2;
+            uut.CheckGating(data);
+            uut.CheckGating(data);
+            uut.CheckGating(data);
+            uut.CheckGating(data);
+            Assert.That(data.GatingState, Is.EqualTo(true));
         }
     }
 }

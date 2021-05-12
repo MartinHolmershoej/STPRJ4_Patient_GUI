@@ -34,11 +34,7 @@ namespace Logic_Layer
                 _gateControl.CheckGating(_data);
 
                 NotifyGui(_data);
-
-                
-
-                
-           }
+            }
         }
 
     }
