@@ -5,12 +5,6 @@ namespace DTO
     public class DTO_Measurement
     {
         /// <summary>
-        /// Constructor til klassen uden parameter
-        /// </summary>
-        public DTO_Measurement()
-        {
-        }
-        /// <summary>
         /// Denne property af typen double indeholder data af målingen
         /// </summary>
         public double MeasurementData { get; set; }
@@ -26,5 +20,16 @@ namespace DTO
         /// Denne property af typen bool indeholder tilstanden af gatingvinduet 
         /// </summary>
         public bool GatingState { get; set; }
+        /// <summary>
+        /// Constructor til klassen uden parameter
+        /// </summary>
+        public DTO_Measurement(double measurement, double gatingLowerValue, double gatingUpperValue, bool gatingState)
+        {
+            measurement = MeasurementData;
+            gatingLowerValue = GatingLowerValue;
+            gatingUpperValue = GatingUpperValue;
+            gatingState = GatingState;
+        }
+
     }
 }

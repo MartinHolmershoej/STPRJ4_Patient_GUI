@@ -29,9 +29,7 @@ namespace Logic_Layer
         {
             while (true)
             {
-                DTO_Measurement _data = new DTO_Measurement();
-
-                _data = _measurementQueue.Take();
+                DTO_Measurement _data = _measurementQueue.Take();
 
                 _gateControl.CheckGating(_data);
 
