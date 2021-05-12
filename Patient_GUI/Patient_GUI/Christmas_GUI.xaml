@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         Title="Christmas_GUI" Height="450" Width="800">
     <Canvas Name="Christmas">
-        <Rectangle Name="GatingArea" Height="50" Width="800" Fill="OrangeRed" Canvas.Bottom="150"></Rectangle>
-        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Green" Canvas.Bottom="0" ></Rectangle>
-        <Label x:Name="label" Content="Hold vejret" Height="52" Canvas.Left="64" Canvas.Top="33" Width="633" FontSize="24" Visibility="Hidden"/>
-        <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="288" Canvas.Top="126" Width="224" FontFamily="Verdana" FontSize="30"/>
-        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="233" Width="111" Canvas.Left="10" IsEnabled="False"></Image>
-        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="234" Width="111" Canvas.Left="167" IsEnabled="False"></Image>
+        <Rectangle Name="GatingArea" Height="{Binding Height}" Width="800" Fill="#FBFF4500" Canvas.Bottom="{Binding LowerGatingValue}"/>
+        <Rectangle Name="BlockPosition" Height="10" Width="800" Fill="Green" Canvas.Bottom="{Binding step}" ></Rectangle>
+        <Label x:Name="HoldLabel" Content="HOLD VEJRET" Canvas.Left="278" Canvas.Top="78" Width="244" FontFamily="Verdana" FontSize="33"/>
         <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="344" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="179" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="234" Width="112" Canvas.Left="34" IsEnabled="False"></Image>
         <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="510" IsEnabled="False"></Image>
         <Image Source="C:\Users\Bruger\source\repos\gift.png" Height="52" Canvas.Top="232" Width="112" Canvas.Left="674" IsEnabled="False"></Image>
+        <Image Source="C:\Users\Bruger\source\repos\santa-claus.png" Height="220" Width="670" Canvas.Left="65" IsEnabled="False" Canvas.Top="259" Opacity="0.3" Visibility="Visible"/>
+        <!--<Image Name="sleigh" Source="C:\Users\Bruger\source\repos\slaede.PNG" Canvas.Bottom="0" Height="63"  Width="800" ></Image>
+        <Image Name="greensleigh" Source="C:\Users\Bruger\source\repos\greensleigh.png" Canvas.Bottom="0" Height="63"  Width="800" ></Image>-->
     </Canvas>
 </Window>
