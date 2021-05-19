@@ -32,12 +32,10 @@ namespace Patient_GUI
             _controller = new ThreadController();
             _dataDistributor = new DataDistributor();
 
-        }
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+
             Loading.Visibility = Visibility.Visible;
             int _Theme =_dataDistributor.GetTheme();
-
+            _controller.startup(_dataDistributor);
             if (_Theme == 1)
             {
                 Standard_GUI standardGui = new Standard_GUI();
@@ -52,8 +50,10 @@ namespace Patient_GUI
             }
 
             Loading.Visibility = Visibility.Hidden;
-            _controller.startup(_dataDistributor);
+            
             this.Hide();
+
         }
+        
     }
 }
