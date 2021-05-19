@@ -26,34 +26,39 @@ namespace Patient_GUI
     {
         private ThreadController _controller;
         private DataDistributor _dataDistributor;
+        private Thread loadThread;
+       
+        
+
         public MainWindow()
         {
             InitializeComponent();
             _controller = new ThreadController();
             _dataDistributor = new DataDistributor();
+            
+        }
 
 
-            Loading.Visibility = Visibility.Visible;
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+
             int _Theme =_dataDistributor.GetTheme();
             _controller.startup(_dataDistributor);
             if (_Theme == 1)
             {
+                
                 Standard_GUI standardGui = new Standard_GUI();
                 standardGui.Show();
                 _dataDistributor.Attach(standardGui);
+                this.Hide();
             }
             if (_Theme == 2)
             {
                 Christmas_GUI christmasGui = new Christmas_GUI();
                 christmasGui.Show();
                 _dataDistributor.Attach(christmasGui);
+                this.Hide();
             }
-
-            Loading.Visibility = Visibility.Hidden;
-            
-            this.Hide();
-
         }
-        
     }
 }

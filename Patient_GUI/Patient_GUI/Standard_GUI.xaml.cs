@@ -28,6 +28,7 @@ namespace Patient_GUI
         public double LowerGatingValue { get; set; }
         public int Height { get; set; }
 
+        
         public Standard_GUI()
         {
             InitializeComponent();
