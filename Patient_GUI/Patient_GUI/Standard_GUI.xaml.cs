@@ -69,21 +69,6 @@ namespace Patient_GUI
                     }
 
                 }));
-
-            //Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-            //        new Action(() => { Canvas.SetBottom(BlockPosition, move); }));
-            //if (move >= _data.GatingLowerValue && move < _data.GatingUpperValue)
-            //{
-            //    Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-            //        new Action(() => { Alarm.Visibility = Visibility.Visible; }));
-            //}
-            //else
-            //{
-
-
-            //    Standard.Dispatcher.Invoke(DispatcherPriority.Normal,
-            //        new Action(() => { Alarm.Visibility = Visibility.Hidden; }));
-            //}
         }
     }
 }

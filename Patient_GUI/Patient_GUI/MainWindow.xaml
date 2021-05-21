@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Loading screen" Height="450" Width="800" WindowStartupLocation="CenterScreen"  ContentRendered="Window_ContentRendered">
     <Canvas Name="LoadingWindow">
-        <Image Name="Loading" gif:AnimationBehavior.SourceUri="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" gif:AnimationBehavior.RepeatBehavior="Forever" Canvas.Left="252" Canvas.Top="120" Visibility="Visible" Height="195" Width="296"/>
         <Label x:Name="WaitLB" Content="Venter på signal fra kontrolrummet" Canvas.Left="239" Canvas.Top="288" Width="322" FontSize="20" FontStretch="Medium"/>
+        <Image Name="loading" Source="Images/loading.jpg" Height="143" Canvas.Left="283" Canvas.Top="146" Width="234"></Image>
     </Canvas>
 </Window>

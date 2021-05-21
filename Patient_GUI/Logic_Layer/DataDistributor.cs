@@ -10,7 +10,7 @@ namespace Logic_Layer
     public class DataDistributor : Subject
     {
         public BlockingCollection<DTO_Measurement> _measurementQueue;
-        Alarm _gateControl = new Alarm();
+        public Alarm _gateControl = new Alarm();
         private UDPTheme _udpTheme = new UDPTheme();
 
 

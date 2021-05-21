@@ -27,17 +27,13 @@ namespace Patient_GUI
         private ThreadController _controller;
         private DataDistributor _dataDistributor;
         private Thread loadThread;
-       
-        
 
         public MainWindow()
         {
             InitializeComponent();
             _controller = new ThreadController();
             _dataDistributor = new DataDistributor();
-            
         }
-
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
@@ -46,7 +42,6 @@ namespace Patient_GUI
             _controller.startup(_dataDistributor);
             if (_Theme == 1)
             {
-                
                 Standard_GUI standardGui = new Standard_GUI();
                 standardGui.Show();
                 _dataDistributor.Attach(standardGui);

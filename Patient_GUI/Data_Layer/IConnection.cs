@@ -10,6 +10,5 @@ namespace Data_Layer
     public interface IConnection
     {
         public void RecieveData();
-
     }
 }

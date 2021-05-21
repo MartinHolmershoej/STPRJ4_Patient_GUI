@@ -17,20 +17,19 @@ namespace Logic_Layer
             
             DataUDP _udp = new DataUDP(_measurementQueue);
             dataDistributor._measurementQueue = _measurementQueue;
-            // ændre navnet på dostuff senere og DataCollector metoden. 
+
 
 
             Thread _udpThread = new Thread(_udp.RecieveData);
-            Thread _dostuffThread = new Thread(dataDistributor.DataCollector);
+            Thread _dataThread = new Thread(dataDistributor.DataCollector);
             
 
-
             _udpThread.IsBackground = true;
-            _dostuffThread.IsBackground = true;
+            _dataThread.IsBackground = true;
 
 
             _udpThread.Start();
-            _dostuffThread.Start();
+            _dataThread.Start();
 
         }
     }

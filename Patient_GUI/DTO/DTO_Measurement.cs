@@ -30,6 +30,5 @@ namespace DTO
             gatingUpperValue = GatingUpperValue;
             gatingState = GatingState;
         }
-
     }
 }

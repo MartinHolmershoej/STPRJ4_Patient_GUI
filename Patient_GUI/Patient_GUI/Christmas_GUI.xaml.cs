@@ -84,7 +84,7 @@ namespace Patient_GUI
                     if (dto_measurement.GatingState)
                     {
                         HoldLabel.Visibility = Visibility.Visible;
-                        //SystemSounds.Beep.Play();
+                        SystemSounds.Beep.Play();
                     }
                     else
                     {

@@ -47,7 +47,6 @@ namespace Data_Layer
             byte[] bytes;
             string jason;
 
-            
             try
             {
                 while (true)
@@ -69,7 +68,5 @@ namespace Data_Layer
             }
 
         }
-
-
     }
 }

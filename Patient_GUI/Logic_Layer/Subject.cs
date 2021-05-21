@@ -8,7 +8,6 @@ namespace Logic_Layer
     {
         private List<IObserver_GUI> iobserver = new List<IObserver_GUI>();
 
-        
         /// <summary>
         /// Denne metode attacher en opserver til listen, så når der sker en ændring i state, så bliver alle der lytter automatisk opdateret. 
         /// </summary>
@@ -21,7 +20,6 @@ namespace Logic_Layer
         public void Detach(IObserver_GUI Observer)
         {
             iobserver.Remove(Observer);
-
         }
 
         protected void NotifyGui(object obj)
@@ -30,7 +28,6 @@ namespace Logic_Layer
             {
                 observer.Update(obj);
             }
-
         }
     }
 }
