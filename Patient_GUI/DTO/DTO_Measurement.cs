@@ -23,12 +23,12 @@ namespace DTO
         /// <summary>
         /// Constructor til klassen uden parameter
         /// </summary>
-        public DTO_Measurement(double measurement, double gatingLowerValue, double gatingUpperValue, bool gatingState)
-        {
-            measurement = MeasurementData;
-            gatingLowerValue = GatingLowerValue;
-            gatingUpperValue = GatingUpperValue;
-            gatingState = GatingState;
-        }
+        //public DTO_Measurement(double measurement, double gatingLowerValue, double gatingUpperValue, bool gatingState)
+        //{
+        //    measurement = MeasurementData;
+        //    gatingLowerValue = GatingLowerValue;
+        //    gatingUpperValue = GatingUpperValue;
+        //    gatingState = GatingState;
+        //}
     }
 }
