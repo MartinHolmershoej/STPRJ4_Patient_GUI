@@ -14,7 +14,7 @@ namespace Patient_GUI_Test
         public void Setup()
         {
             uut = new Alarm();
-            data = new DTO_Measurement(2,1,3,false);
+            //data = new DTO_Measurement(2,1,3,false);
         }
 
         [Test]
