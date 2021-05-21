@@ -26,7 +26,6 @@ namespace Patient_GUI
     {
         private ThreadController _controller;
         private DataDistributor _dataDistributor;
-        private Thread loadThread;
 
         public MainWindow()
         {
