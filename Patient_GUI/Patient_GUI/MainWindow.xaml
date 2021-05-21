@@ -9,6 +9,6 @@
         Title="Loading screen" Height="450" Width="800" WindowStartupLocation="CenterScreen"  ContentRendered="Window_ContentRendered">
     <Canvas Name="LoadingWindow">
         <Label x:Name="WaitLB" Content="Venter på signal fra kontrolrummet" Canvas.Left="239" Canvas.Top="288" Width="322" FontSize="20" FontStretch="Medium"/>
-        <Image Name="loading" Source="Images/loading.jpg" Height="143" Canvas.Left="283" Canvas.Top="146" Width="234"></Image>
+        <Image x:Name="loading" Source="Images/loading.jpg" Height="143" Canvas.Left="283" Canvas.Top="146" Width="234"/>
     </Canvas>
 </Window>

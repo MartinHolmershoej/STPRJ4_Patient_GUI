@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\loading.jpg" />
     <None Remove="LoadingWheel.gif" />
   </ItemGroup>
 
@@ -23,6 +24,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Logic_Layer\Logic_Layer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\loading.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
