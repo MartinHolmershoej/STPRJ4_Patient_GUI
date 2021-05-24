@@ -10,7 +10,7 @@ using DTO;
 namespace Data_Layer
 {
     /// <summary>
-    /// Klassen UDPTheme bruges til at modtage tema fra operatørsystemet, som skal bruges til GUI'en
+    /// Denne klasse modtager et tema-nummer fra UDP-forbindelsen fra Operatør-programmet.
     /// </summary>
     public class UDPTheme
     {

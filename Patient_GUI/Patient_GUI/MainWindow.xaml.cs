@@ -21,24 +21,39 @@ namespace Patient_GUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Denne klasse er userinterfacet, hvor skærmen loader programmet.
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Et objekt af ThreaController
+        /// </summary>
         private ThreadController _controller;
+        /// <summary>
+        /// Et objekt af DataDistributor
+        /// </summary>
         private DataDistributor _dataDistributor;
 
+        /// <summary>
+        /// Constructor for MainWindow uden parameter 
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
             _controller = new ThreadController();
             _dataDistributor = new DataDistributor();
         }
-
+        /// <summary>
+        /// Denne metode henter tema-nummer fra DataDistributor-klassen, starter tråde op og tilkobler enten Standard- eller Christmas-
+        /// klasserne alt efter tema-nummer.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_ContentRendered(object sender, EventArgs e)
         {
 
             int _Theme =_dataDistributor.GetTheme();
-            _controller.startup(_dataDistributor);
+            _controller.Startup(_dataDistributor);
             if (_Theme == 1)
             {
                 Standard_GUI standardGui = new Standard_GUI();

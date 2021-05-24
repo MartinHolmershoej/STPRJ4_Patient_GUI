@@ -8,9 +8,16 @@ using DTO;
 
 namespace Logic_Layer
 {
+    /// <summary>
+    /// Denne klasse opretter og starter tråde.
+    /// </summary>
     public class ThreadController
     {
-        public void startup(DataDistributor dataDistributor)
+        /// <summary>
+        /// Denne metode bruges til at starte trådene op. Den indeholder DataDistributor-klassen som parameter.
+        /// </summary>
+        /// <param name="dataDistributor"></param>
+        public void Startup(DataDistributor dataDistributor)
         {
             //,
             BlockingCollection<DTO_Measurement> _measurementQueue = new BlockingCollection<DTO_Measurement>();

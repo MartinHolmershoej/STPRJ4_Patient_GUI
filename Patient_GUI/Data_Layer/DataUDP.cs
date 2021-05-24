@@ -11,7 +11,8 @@ using DTO;
 namespace Data_Layer
 {
     /// <summary>
-    /// Denne klasse bruges til at modtage data fra operatørsystemet og arver fra interfacet IConnection
+    /// Denne klasse modtager åndedrætsværdier fra UDP-forbindelsen fra Operatør-programmet.
+    /// Klassen arver fra interfacet IConnection
     /// </summary>
     public class DataUDP : IConnection
     {
@@ -28,10 +29,14 @@ namespace Data_Layer
         /// </summary>
         private static int port0 = 11000;
         /// <summary>
+        /// Et objekt af IPAddress, som fortæller om porten, der broadcastes fra
+        /// </summary>
+        private IPAddress broadCastIP;
+        /// <summary>
         /// Constructor for klassen DataUDP med blockingcollection af DTO_Measurement som parameter
         /// </summary>
         /// <param name="_measurementQueue"></param>
-        private IPAddress broadCastIP;
+
         public DataUDP(BlockingCollection<DTO_Measurement> _measurementQueue)
         {
             measurementQueue = _measurementQueue;
