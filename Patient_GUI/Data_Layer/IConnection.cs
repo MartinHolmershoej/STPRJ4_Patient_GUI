@@ -5,7 +5,7 @@ using System.Text;
 namespace Data_Layer
 {
     /// <summary>
-    /// Dette interface bruges til klasserne DataUDP og UDPTheme
+    /// Dette interface bruges til klasserne DataUDP
     /// </summary>
     public interface IConnection
     {
